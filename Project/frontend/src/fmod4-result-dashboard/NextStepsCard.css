@@ -1,0 +1,155 @@
+/* Next Steps Card Styles */
+.next-steps-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.next-steps-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.next-steps-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--blue-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.next-steps-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.next-steps-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.consult-doctor-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: var(--blue-subtle);
+  border: 1.5px solid var(--blue-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  color: var(--text);
+}
+
+.consult-doctor-banner.prominent {
+  background-color: #fff9e6;
+  border-color: var(--amber);
+  border-left-width: 6px;
+}
+
+.consult-icon {
+  flex-shrink: 0;
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+.consult-doctor-banner.prominent .consult-icon {
+  color: var(--amber-text);
+}
+
+.consult-text strong {
+  font-size: 1rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.consult-text p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.steps-guidance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.guidance-box {
+  background-color: var(--bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guidance-box h4 {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 700;
+  margin: 0;
+}
+
+.guidance-box ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Urgent box adheres to Rule 11: red is an accent only */
+.guidance-box.urgent {
+  background-color: var(--red-subtle);
+  border: 1px solid var(--red-border);
+  border-left: 5px solid var(--red);
+}
+
+.guidance-box.urgent h4 {
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.urgent-badge {
+  background-color: var(--red);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+.guidance-box.urgent ul {
+  color: #7f1d1d;
+}
+
+@media (max-width: 768px) {
+  .steps-guidance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .next-steps-card {
+    padding: 18px 16px;
+  }
+}
+

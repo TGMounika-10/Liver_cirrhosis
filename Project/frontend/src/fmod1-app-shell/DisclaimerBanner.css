@@ -1,0 +1,103 @@
+/* Disclaimer Banner Styles */
+.disclaimer-banner {
+  width: 100%;
+  border-bottom: 1px solid var(--blue-border);
+  background-color: var(--blue-subtle);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.disclaimer-banner.result-disclaimer {
+  background-color: var(--amber-subtle);
+  border-left: 6px solid var(--amber);
+  border-bottom: 1px solid var(--amber-border);
+  box-shadow: 0 2px 6px rgba(249, 168, 37, 0.12);
+}
+
+.disclaimer-banner.standard-disclaimer {
+  border-left: 6px solid var(--blue);
+}
+
+.disclaimer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.disclaimer-icon-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.standard-disclaimer .disclaimer-icon {
+  color: var(--blue);
+}
+
+.result-disclaimer .disclaimer-icon {
+  color: var(--amber-text);
+}
+
+.disclaimer-text {
+  flex: 1 1 auto;
+}
+
+.disclaimer-title {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.disclaimer-mandatory-note {
+  margin-top: 4px;
+  font-weight: 600;
+  color: var(--amber-text);
+}
+
+.disclaimer-dismiss-btn {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.disclaimer-dismiss-btn:hover {
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.disclaimer-dismiss-btn:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .disclaimer-content {
+    padding: 8px 12px;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .disclaimer-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+

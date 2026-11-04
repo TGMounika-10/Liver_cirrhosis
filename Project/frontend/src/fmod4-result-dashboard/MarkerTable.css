@@ -1,0 +1,149 @@
+/* Marker Table Styles */
+.marker-table-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.marker-table-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.marker-table-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.marker-table-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.table-responsive-box {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+}
+
+.markers-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.markers-data-table thead {
+  background-color: var(--bg);
+  border-bottom: 2px solid var(--surface-border);
+}
+
+.markers-data-table th {
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.markers-data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--surface-border);
+  vertical-align: middle;
+}
+
+.marker-row:last-child td {
+  border-bottom: none;
+}
+
+.marker-col-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.marker-label-text {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.marker-subtext {
+  font-size: 0.76rem;
+  color: var(--text-light);
+}
+
+.value-number {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-right: 4px;
+}
+
+.value-unit {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.ref-range-badge {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background-color: var(--bg);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+/* Status Chips with Accessible Contrast */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.status-badge.chip-normal {
+  background-color: var(--green-subtle);
+  color: var(--green);
+  border-color: var(--green-border);
+}
+
+.status-badge.chip-borderline {
+  background-color: var(--amber-subtle);
+  color: var(--amber-text);
+  border-color: var(--amber-border);
+}
+
+.status-badge.chip-abnormal {
+  background-color: var(--red-subtle);
+  color: var(--red);
+  border-color: var(--red-border);
+}
+
+.chip-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .marker-table-card {
+    padding: 16px 12px;
+  }
+
+  .markers-data-table th,
+  .markers-data-table td {
+    padding: 10px 10px;
+  }
+}
+

@@ -1,0 +1,111 @@
+/* Upload Progress Styles */
+.upload-progress-container {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.progress-percent {
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 1rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background-color: var(--bg);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--blue);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-steps-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.progress-step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  flex: 1 1 0;
+}
+
+.step-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 1.5px solid var(--surface-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.progress-step-item.current {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.progress-step-item.current .step-dot {
+  border-color: var(--blue);
+  color: var(--blue);
+  background-color: var(--blue-subtle);
+}
+
+.progress-step-item.completed {
+  color: var(--green);
+}
+
+.progress-step-item.completed .step-dot {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: #FFFFFF;
+}
+
+@media (max-width: 520px) {
+  .progress-step-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .step-text {
+    font-size: 0.75rem;
+  }
+}
+

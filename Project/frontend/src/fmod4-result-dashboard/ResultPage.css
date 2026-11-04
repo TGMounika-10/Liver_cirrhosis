@@ -1,0 +1,161 @@
+/* Result Page Styles */
+.result-page {
+  padding: 32px 20px 64px;
+}
+
+.result-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.print-header-card {
+  display: none;
+}
+
+.result-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.page-heading {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.page-subheading {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.result-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .result-page {
+    padding: 20px 14px 48px;
+  }
+
+  .result-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .result-quick-actions {
+    width: 100%;
+  }
+
+  .result-quick-actions .btn {
+    flex: 1 1 auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .result-bottom-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .result-bottom-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Print Stylesheet */
+@media print {
+  .no-print,
+  .app-header,
+  .app-footer,
+  .disclaimer-banner,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  .result-page {
+    padding: 0 !important;
+  }
+
+  .result-container {
+    gap: 16px !important;
+    max-width: 100% !important;
+  }
+
+  .print-header-card {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid #1F2937;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  .print-title h2 {
+    font-size: 1.4rem;
+    color: #1565C0;
+    margin: 0;
+  }
+
+  .print-sub {
+    font-size: 0.85rem;
+    color: #4B5563;
+  }
+
+  .print-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    font-size: 0.85rem;
+  }
+
+  .risk-summary-card,
+  .marker-table-card,
+  .factor-list-card,
+  .next-steps-card,
+  .disclaimer-block-card {
+    box-shadow: none !important;
+    border: 1px solid #D1D5DB !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 16px !important;
+  }
+
+  .summary-title {
+    font-size: 1.3rem !important;
+  }
+}
+

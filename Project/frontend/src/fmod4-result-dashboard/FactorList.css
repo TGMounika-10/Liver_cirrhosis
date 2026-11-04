@@ -1,0 +1,120 @@
+/* Factor List Styles */
+.factor-list-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.factors-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.factors-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.factors-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--blue-subtle);
+  color: var(--blue);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--blue-border);
+}
+
+.factors-intro {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.factors-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.factor-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  background-color: var(--bg);
+}
+
+.factor-item.impact-up {
+  border-left: 5px solid var(--amber);
+}
+
+.factor-item.impact-down {
+  border-left: 5px solid var(--green);
+}
+
+.factor-icon-bubble {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.factor-item.impact-up .factor-icon-bubble {
+  background-color: var(--amber-subtle);
+  color: var(--amber-text);
+}
+
+.factor-item.impact-down .factor-icon-bubble {
+  background-color: var(--green-subtle);
+  color: var(--green);
+}
+
+.factor-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.factor-message {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.factor-impact-label {
+  font-size: 0.76rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.factors-footnote {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.no-factors-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+

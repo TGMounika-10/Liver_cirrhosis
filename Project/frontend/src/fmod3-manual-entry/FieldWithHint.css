@@ -1,0 +1,132 @@
+/* Field With Hint Styles */
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.field-required-marker {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.field-optional-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-light);
+  background-color: var(--bg);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+}
+
+.field-normal-range {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+.field-input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-affix-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.field-control {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1.5px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-affix-container .field-control {
+  padding-right: 76px;
+}
+
+.field-control:focus {
+  border-color: var(--blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+.field-control.input-error {
+  border-color: var(--red);
+  background-color: #fff9f9;
+}
+
+.field-unit-badge {
+  position: absolute;
+  right: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  pointer-events: none;
+  background-color: var(--bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+}
+
+.field-inline-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--red);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.field-inline-warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--amber-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.field-bottom-hint {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 480px) {
+  .field-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+

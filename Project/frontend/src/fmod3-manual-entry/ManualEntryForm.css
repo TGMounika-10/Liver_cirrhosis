@@ -1,0 +1,126 @@
+/* Manual Entry Form Styles */
+.manual-entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-global-error-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background-color: var(--red-subtle);
+  border: 1.5px solid var(--red-border);
+  border-radius: var(--radius-md);
+  color: var(--red);
+  font-size: 0.92rem;
+}
+
+.error-text-wrap {
+  flex: 1 1 auto;
+}
+
+.form-section {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-section.optional-section {
+  background: #fafbfc;
+  border-style: dashed;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue);
+  padding: 0 8px;
+  margin-left: -8px;
+}
+
+.optional-legend-tag {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.section-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: -6px;
+  margin-bottom: 6px;
+}
+
+.fields-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.fields-grid.two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.predict-btn {
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-clear {
+  background-color: transparent;
+  color: var(--text-muted);
+  border-color: var(--surface-border);
+}
+
+.btn-clear:hover {
+  color: var(--red);
+  border-color: var(--red-border);
+  background-color: var(--red-subtle);
+}
+
+.actions-validation-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .fields-grid.two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .form-section {
+    padding: 18px 16px 22px;
+  }
+
+  .form-actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .predict-btn,
+  .btn-clear {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+

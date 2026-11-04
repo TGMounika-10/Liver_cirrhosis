@@ -1,0 +1,100 @@
+/* Risk Gauge Styles */
+.risk-gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.risk-gauge-svg {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  overflow: visible;
+}
+
+.gauge-axis-label {
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--text-light);
+}
+
+.gauge-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -12px;
+  gap: 4px;
+}
+
+.gauge-percent-text {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.gauge-category-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid;
+}
+
+.gauge-category-pill.category-low {
+  background-color: var(--green-subtle);
+  color: var(--green);
+}
+
+.gauge-category-pill.category-moderate {
+  background-color: var(--amber-subtle);
+  color: var(--amber-text);
+}
+
+.gauge-category-pill.category-high {
+  background-color: var(--red-subtle);
+  color: var(--red);
+}
+
+.gauge-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.green {
+  background-color: var(--green);
+}
+
+.legend-dot.amber {
+  background-color: var(--amber);
+}
+
+.legend-dot.red {
+  background-color: var(--red);
+}
+

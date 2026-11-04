@@ -1,0 +1,196 @@
+/* Upload Page Styles */
+.upload-page {
+  padding: 32px 20px 64px;
+}
+
+.upload-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.upload-intro {
+  max-width: 760px;
+}
+
+.upload-intro h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--blue);
+  margin-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.upload-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.switch-to-manual-prompt {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.manual-link {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.manual-link:hover {
+  color: var(--blue-hover);
+}
+
+.selected-file-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.file-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.extract-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+/* Error card */
+.upload-error-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background-color: var(--surface);
+  border: 1.5px solid var(--red-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.error-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.error-content h3 {
+  color: var(--red);
+  margin-bottom: 6px;
+  font-size: 1.15rem;
+}
+
+.error-content p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Review Phase */
+.review-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review-file-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.validation-summary-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background-color: var(--amber-subtle);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius-md);
+  color: var(--amber-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.submit-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.predict-submit-btn {
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.switch-btn {
+  background-color: transparent;
+  color: var(--text-muted);
+  border-color: var(--surface-border);
+}
+
+.switch-btn:hover {
+  background-color: var(--surface-hover);
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .upload-page {
+    padding: 20px 14px 48px;
+  }
+
+  .upload-error-card {
+    flex-direction: column;
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .submit-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .predict-submit-btn,
+  .switch-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .file-actions {
+    flex-direction: column;
+  }
+
+  .file-actions .btn {
+    width: 100%;
+  }
+}
+

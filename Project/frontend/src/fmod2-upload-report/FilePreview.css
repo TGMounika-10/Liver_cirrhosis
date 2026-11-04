@@ -1,0 +1,116 @@
+/* File Preview Styles */
+.file-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.preview-media-container {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg);
+  border: 1px solid var(--surface-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-pdf-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+}
+
+.pdf-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: 0.05em;
+  margin-top: -2px;
+}
+
+.preview-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preview-filename {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-filesize {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.preview-ready-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--green);
+  background-color: var(--green-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.preview-remove-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 8px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.preview-remove-btn:hover:not(:disabled) {
+  color: var(--red);
+  background-color: var(--red-subtle);
+}
+
+.preview-remove-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .file-preview-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .preview-media-container {
+    width: 52px;
+    height: 52px;
+  }
+}
+
