@@ -1,0 +1,72 @@
+/* Limitations List Styles */
+.limitations-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.limitations-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.limitations-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 0;
+}
+
+.not-a-diagnostic-callout {
+  background-color: var(--amber-subtle);
+  border-left: 5px solid var(--amber);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  color: var(--amber-text);
+  line-height: 1.5;
+}
+
+.limitations-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.limitation-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.bullet-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--blue-subtle);
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bullet-text {
+  flex: 1 1 auto;
+}
+

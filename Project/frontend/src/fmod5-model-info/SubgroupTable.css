@@ -1,0 +1,108 @@
+/* Subgroup Table Styles */
+.subgroup-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subgroup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.subgroup-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 0;
+}
+
+.subgroup-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.subgroup-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.subgroup-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.subgroup-table thead {
+  background-color: var(--bg);
+  border-bottom: 2px solid var(--surface-border);
+}
+
+.subgroup-table th {
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.subgroup-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.subgroup-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sg-name strong {
+  color: var(--text);
+}
+
+.sg-size {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.sg-metric {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sg-metric.highlight {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.subgroup-footer {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  border-top: 1px solid var(--surface-border);
+  padding-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .subgroup-card {
+    padding: 16px 12px;
+  }
+
+  .subgroup-table th,
+  .subgroup-table td {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+}
+

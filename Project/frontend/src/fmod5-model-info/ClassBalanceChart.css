@@ -1,0 +1,137 @@
+/* Class Balance Chart Styles */
+.class-balance-card {
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cb-title {
+  font-size: 1.25rem;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 0;
+}
+
+.cb-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cb-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cb-stacked-bar {
+  width: 100%;
+  height: 38px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  background-color: var(--bg);
+  border: 1px solid var(--surface-border);
+}
+
+.bar-segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: opacity 0.2s ease;
+}
+
+.bar-segment:hover {
+  opacity: 0.9;
+}
+
+.disease-segment {
+  background-color: var(--blue);
+}
+
+.healthy-segment {
+  background-color: var(--green);
+}
+
+.cb-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.cb-legend-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.cb-legend-card.disease .legend-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--blue);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.cb-legend-card.healthy .legend-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--green);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legend-name {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.legend-count {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.legend-sub {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+.cb-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  border-top: 1px solid var(--surface-border);
+  padding-top: 12px;
+}
+

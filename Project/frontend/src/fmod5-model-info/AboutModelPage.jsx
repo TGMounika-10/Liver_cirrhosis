@@ -1,55 +1,147 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import apiClient from "../fmod1-app-shell/api/client";
+import MetricCards from "./MetricCards";
+import ConfusionMatrix from "./ConfusionMatrix";
+import ClassBalanceChart from "./ClassBalanceChart";
+import SubgroupTable from "./SubgroupTable";
+import LimitationsList from "./LimitationsList";
+import { DEFAULT_MODEL_INFO } from "./modelData";
+import "./AboutModelPage.css";
 
 export default function AboutModelPage() {
+  const [modelInfo, setModelInfo] = useState(DEFAULT_MODEL_INFO);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
+
+  const fetchModelInfo = async () => {
+    setLoading(true);
+    setFetchError(null);
+
+    try {
+      const response = await apiClient.get("/api/model/info");
+      if (response.data && response.data.metrics) {
+        setModelInfo(response.data);
+      } else {
+        // Use default benchmark data if response is empty
+        setModelInfo(DEFAULT_MODEL_INFO);
+      }
+    } catch (err) {
+      // In offline / dev mode, fall back to benchmark modelData while displaying a soft notice
+      if (!err.response) {
+        setModelInfo(DEFAULT_MODEL_INFO);
+      } else {
+        setFetchError("Unable to load live metrics from the model service. Showing cached benchmark specifications.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchModelInfo();
+  }, []);
+
   return (
-    <div style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "40px 20px" }}>
-      <div style={{ background: "var(--surface)", padding: "32px", borderRadius: "var(--radius-lg)", border: "1px solid var(--surface-border)", boxShadow: "var(--shadow-sm)" }}>
-        <h1 style={{ color: "var(--blue)", marginBottom: "12px", fontSize: "1.85rem" }}>
-          About the Risk Prediction Model & Transparency
-        </h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", marginBottom: "28px" }}>
-          Detailed technical specifications, clinical datasets, performance benchmarks, and known limitations.
-        </p>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px", marginBottom: "32px" }}>
-          <div style={{ padding: "18px", borderRadius: "var(--radius-md)", background: "var(--bg)", border: "1px solid var(--surface-border)" }}>
-            <span style={{ fontSize: "0.8rem", textTransform: "uppercase", color: "var(--text-light)", fontWeight: 700 }}>Primary Dataset</span>
-            <h3 style={{ margin: "4px 0", color: "var(--blue)" }}>ILPD</h3>
-            <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)" }}>Indian Liver Patient Dataset (583 records, tabular blood-test data).</p>
+    <div className="about-model-page">
+      <div className="about-model-container">
+        {/* Page Header */}
+        <header className="about-header">
+          <div className="header-badge-row">
+            <span className="info-badge">Model Transparency & Governance</span>
+            <span className="version-badge">{modelInfo.model_version || "v1.0.0"}</span>
           </div>
-          <div style={{ padding: "18px", borderRadius: "var(--radius-md)", background: "var(--bg)", border: "1px solid var(--surface-border)" }}>
-            <span style={{ fontSize: "0.8rem", textTransform: "uppercase", color: "var(--text-light)", fontWeight: 700 }}>Primary Metric</span>
-            <h3 style={{ margin: "4px 0", color: "var(--blue)" }}>High Recall</h3>
-            <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)" }}>Threshold tuned to prioritize sensitivity to avoid missing potential cases.</p>
-          </div>
-          <div style={{ padding: "18px", borderRadius: "var(--radius-md)", background: "var(--bg)", border: "1px solid var(--surface-border)" }}>
-            <span style={{ fontSize: "0.8rem", textTransform: "uppercase", color: "var(--text-light)", fontWeight: 700 }}>Model Output</span>
-            <h3 style={{ margin: "4px 0", color: "var(--blue)" }}>Probability (0–1)</h3>
-            <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)" }}>Mapped to Low (&lt;0.35), Moderate, or High risk categories.</p>
-          </div>
-        </div>
+          <h1 className="about-title">Algorithm Specifications & Performance</h1>
+          <p className="about-subtitle">
+            Complete transparency on training datasets, classification metrics, subgroup fairness, and limitations
+            for the Liver Cirrhosis Risk Prediction System.
+          </p>
 
-        <div style={{ marginBottom: "32px" }}>
-          <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: "12px" }}>Clinical & Technical Limitations</h2>
-          <ul style={{ paddingLeft: "24px", color: "var(--text-muted)", lineHeight: "1.7" }}>
-            <li>
-              <strong>Educational Screening Only:</strong> This software is not a medical device and does not diagnose cirrhosis or any liver pathology.
-            </li>
-            <li>
-              <strong>Dataset Scope:</strong> The model evaluates liver disease broadly based on historical lab records and cannot differentiate specific etiologies without additional imaging and clinical findings.
-            </li>
-            <li>
-              <strong>No Substitute for Clinicians:</strong> Always consult a qualified medical professional for health inquiries and symptom investigations.
-            </li>
-          </ul>
-        </div>
+          <div className="meta-pills-row">
+            <div className="meta-pill">
+              <span className="meta-label">Architecture:</span>
+              <strong>{modelInfo.model_name}</strong>
+            </div>
+            <div className="meta-pill">
+              <span className="meta-label">Training Date:</span>
+              <strong>{modelInfo.training_date}</strong>
+            </div>
+            <div className="meta-pill">
+              <span className="meta-label">Dataset:</span>
+              <strong>{modelInfo.dataset?.name}</strong>
+            </div>
+          </div>
+        </header>
 
-        <div style={{ display: "flex", gap: "12px" }}>
-          <Link to="/" className="btn">Back to Awareness</Link>
-          <Link to="/upload" className="btn primary">Check Your Lab Values</Link>
-        </div>
+        {/* Error alert with retry button if backend call failed */}
+        {fetchError && (
+          <div className="fetch-error-banner" role="alert">
+            <div className="error-text">
+              <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              <span>{fetchError}</span>
+            </div>
+            <button
+              type="button"
+              className="btn sm"
+              onClick={fetchModelInfo}
+              disabled={loading}
+            >
+              {loading ? "Retrying..." : "Retry Connection"}
+            </button>
+          </div>
+        )}
+
+        {/* Section 1: Performance Metric Cards */}
+        <section aria-labelledby="metrics-summary-heading">
+          <h2 id="metrics-summary-heading" className="section-heading">
+            Evaluation Metrics
+          </h2>
+          <MetricCards
+            metrics={modelInfo.metrics}
+            explanations={modelInfo.metric_explanations}
+          />
+        </section>
+
+        {/* Section 2: Confusion Matrix & Class Balance */}
+        <section className="two-column-section">
+          <ConfusionMatrix matrix={modelInfo.confusion_matrix} />
+          <ClassBalanceChart distribution={modelInfo.dataset?.class_distribution} />
+        </section>
+
+        {/* Section 3: Subgroup Performance */}
+        <section aria-labelledby="subgroup-heading">
+          <h2 id="subgroup-heading" className="section-heading">
+            Fairness & Demographic Subgroups
+          </h2>
+          <SubgroupTable subgroups={modelInfo.subgroups} />
+        </section>
+
+        {/* Section 4: Known Limitations */}
+        <section aria-labelledby="limitations-heading">
+          <h2 id="limitations-heading" className="section-heading">
+            Clinical Limitations
+          </h2>
+          <LimitationsList limitations={modelInfo.limitations} />
+        </section>
+
+        {/* Section 5: Call to action */}
+        <section className="about-cta-card">
+          <h2>Ready to Check Your Lab Values?</h2>
+          <p>
+            Upload an existing laboratory report or manually enter your metrics to view your personalized risk estimate.
+          </p>
+          <div className="cta-buttons">
+            <Link to="/upload" className="btn primary">
+              Upload Report
+            </Link>
+            <Link to="/manual" className="btn">
+              Manual Entry
+            </Link>
+          </div>
+        </section>
       </div>
     </div>
   );
 }
-
